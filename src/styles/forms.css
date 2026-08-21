@@ -1,0 +1,95 @@
+sup {
+    color: red;
+    font-size: 14px;
+}
+
+.h2-forms {
+    text-align: center;
+    padding: 15px;
+}
+
+.general-information {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-education {}
+
+.form-experience {}
+
+.form-wrapper {
+    margin: 0 auto;
+    padding: 25px 50px;
+    border: var(--border);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #fff;
+}
+
+.input-title {
+    font-size: 18px;
+}
+
+.form-description {
+    text-align: center;
+    color: var(--color-secondary-text);
+    font-family: 'Inter';
+    padding: 5px 0 30px 0;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--bgc-cv-app);
+    border: var(--border);
+    border-radius: 5px;
+    padding: 5px;
+    transition: border-color 0.4s ease;
+}
+
+.input-wrapper input {
+    border: none;
+    background-color: var(--bgc-cv-app);
+    padding: 2px;
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--border-color-input-focus);
+}
+
+.input-error {
+    color: red;
+    font-family: 'Inter';
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-btn {
+    padding: 5px 10px;
+    border: var(--border);
+    border-radius: 5px;
+    background-color: var(--bgc-form-btn-save);
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.form-btn:hover {
+    background-color: var(--bgc-form-btn-save-hover);
+    border-color: var(--border-color-form-btn-save-hover);
+}

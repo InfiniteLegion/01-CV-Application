@@ -1,0 +1,20 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.h1-app {
+    text-align: center;
+    padding: 10px;
+}
+
+.app-header {
+    border-bottom: var(--border);
+}
+
+.cv-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
