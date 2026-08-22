@@ -3,12 +3,14 @@
     height: 100%;
 }
 
-/* forms area */
+/* main area */
 
 .cv-app {
     background-color: var(--bgc-cv-app);
     display: grid;
     grid-template-columns: 1fr 5fr;
+    padding-bottom: 20px;
+    overflow-y: auto;
 }
 
 /* sidebar area */
@@ -40,9 +42,16 @@
     background-color: lightseagreen;
 }
 
+/* forms area */
+
+.cv-app-forms {
+    overflow-y: auto;
+}
+
 /* preview area */
 
 .cv-preview {
     background-color: var(--bgc-cv-preview);
     border-left: var(--border);
+    padding-bottom: 20px;
 }

@@ -8,8 +8,8 @@ const CvApplication = () => {
     
     return (
         <section className="cv-app">
-            <CvApplicationSideBar onSend={setActiveIndex} />
-            <CvApplicationForms activeIndex={activeIndex} />
+            <CvApplicationSideBar index={activeIndex} onSend={setActiveIndex} />
+            <CvApplicationForms activeIndex={activeIndex} changePage={setActiveIndex} />
         </section>
     );
 }

@@ -1,15 +1,15 @@
 import '../styles/cv.css';
-import FormEducationInformation from './FormEducationInformation.jsx';
-import FormExperienceInformation from './FormExperienceInformation.jsx';
-import FormGeneralInformation from './FormGeneralInformation.jsx';
+import EducationInformation from './EducationInformation.jsx';
+import ExperienceInformation from './ExperienceInformation.jsx';
+import GeneralInformation from './GeneralInformation.jsx';
 
-const CvApplicationForms = ({ activeIndex }) => {
+const CvApplicationForms = ({ activeIndex, changePage }) => {
     return (
         <section className='cv-app-forms'>
             {
-                activeIndex === 0 ? <FormGeneralInformation /> :
-                activeIndex === 1 ? <FormEducationInformation /> :
-                activeIndex === 2 ? <FormExperienceInformation /> : null
+                activeIndex === 0 ? <GeneralInformation changePage={changePage} /> :
+                activeIndex === 1 ? <EducationInformation changePage={changePage} /> :
+                activeIndex === 2 ? <ExperienceInformation changePage={changePage} /> : null
             }
         </section>
     );
