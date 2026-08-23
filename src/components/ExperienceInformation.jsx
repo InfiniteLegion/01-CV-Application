@@ -1,21 +1,41 @@
-import { useState } from "react";
 import "../styles/forms.css";
 import FormExperienceInformation from "./FormExperienceInformation.jsx";
 
-const ExperienceInformation = ({ changePage }) => {
-  const [forms, setForms] = useState([{ id: crypto.randomUUID() }]);
-
+const ExperienceInformation = ({ changePage, experienceData, setExperienceData }) => {
   const handleAddForm = () => {
-    setForms((prev) => [...prev, { id: crypto.randomUUID() }]);
+    setExperienceData((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        data: {
+          company: "",
+          position: "",
+          location: "",
+          dateStart: "",
+          dateEnd: "",
+          responsibilities: "",
+        },
+      },
+    ]);
   };
 
   const handleRemoveForm = (id) => {
-    setForms((prev) => prev.filter((form) => form.id !== id));
+    setExperienceData((prev) => prev.filter((form) => form.id !== id));
   };
 
   const handleChangePage = (index) => {
     changePage(index);
   };
+
+  const handleUpdateData = (id, newData) => {
+    setExperienceData((prev) =>
+      prev.map((form) => (form.id === id ? { ...form, data: newData } : form)),
+    );
+  }
+
+  const handleSaveData = () => {
+    setExperienceData(experienceData);
+  }
 
   return (
     <section className="experience-information">
@@ -26,12 +46,14 @@ const ExperienceInformation = ({ changePage }) => {
       </p>
 
       <div className="forms-block">
-        {forms.map((form, index) => (
+        {experienceData.map((form, index) => (
           <div key={form.id}>
             <FormExperienceInformation
               index={index}
-              id={form.id}
-              deleteForm={handleRemoveForm}
+              idForm={form.id}
+              data={form.data}
+              updateData={handleUpdateData}
+              {...(experienceData.length > 1 ? {deleteForm: handleRemoveForm} : {})}
             />
           </div>
         ))}
@@ -43,7 +65,7 @@ const ExperienceInformation = ({ changePage }) => {
           <button className="form-btn" onClick={handleAddForm}>
             Add experience
           </button>
-          <button className="form-btn">Save</button>
+          <button className="form-btn" onClick={handleSaveData}>Save</button>
         </div>
       </div>
     </section>

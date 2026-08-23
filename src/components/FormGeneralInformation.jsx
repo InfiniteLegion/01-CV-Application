@@ -1,19 +1,13 @@
 import '../styles/forms.css';
 import IconModule from '@mdi/react';
 import { mdiAccount, mdiEmailOutline, mdiPhone } from '@mdi/js';
-import { useState } from 'react';
 
-const FormGeneralInformation = () => {
+const FormGeneralInformation = ({ generalData, setGeneralData }) => {
     const Icon = IconModule.default;
-    const [data, setData] = useState({
-        lastName: '',
-        firstName: '',
-        email: '',
-        phone: ''
-    });
+    // const [data, setData] = useState(generalData);
 
     const handleClear = () => {
-        setData({
+        setGeneralData({
             lastName: '',
             firstName: '',
             email: '',
@@ -22,7 +16,7 @@ const FormGeneralInformation = () => {
     }
 
     const handleChange = (field) => (e) => {
-        setData(prev => ({...prev, [field]: e.target.value}));
+        setGeneralData(prev => ({...prev, [field]: e.target.value}));
     }
 
     return (
@@ -37,7 +31,7 @@ const FormGeneralInformation = () => {
               type="text"
               className="form-input"
               placeholder="Doe"
-              value={data.lastName}
+              value={generalData.lastName}
               onChange={handleChange("lastName")}
             />
           </div>
@@ -54,7 +48,7 @@ const FormGeneralInformation = () => {
               type="text"
               className="form-input"
               placeholder="Sam"
-              value={data.firstName}
+              value={generalData.firstName}
               onChange={handleChange("firstName")}
             />
           </div>
@@ -71,7 +65,7 @@ const FormGeneralInformation = () => {
               type="text"
               className="form-input"
               placeholder="sam.doe.dev@mail.com"
-              value={data.email}
+              value={generalData.email}
               onChange={handleChange("email")}
             />
           </div>
@@ -88,7 +82,7 @@ const FormGeneralInformation = () => {
               type="text"
               className="form-input"
               placeholder="XXX-XXX-XXXX"
-              value={data.phone}
+              value={generalData.phone}
               onChange={handleChange("phone")}
             />
           </div>

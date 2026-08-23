@@ -1,23 +1,16 @@
 import { mdiDelete, mdiSchool, mdiTownHall } from "@mdi/js";
 import "../styles/forms.css";
 import IconModule from "@mdi/react";
-import { useState } from "react";
 
-const FormEducationalInformation = ({ index, id, deleteForm }) => {
+const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateData }) => {
   const Icon = IconModule.default;
-  const [data, setData] = useState({
-    place: "",
-    degree: "",
-    dateStart: "",
-    dateEnd: "",
-  });
-
+  
   const handleChange = (field) => (e) => {
-    setData((prev) => ({ ...prev, [field]: e.target.value }));
+    updateData(idForm, {...data, [field]: e.target.value});
   };
 
   const handleClear = () => {
-    setData({
+    updateData(idForm, {
       place: "",
       degree: "",
       dateStart: "",
@@ -29,9 +22,11 @@ const FormEducationalInformation = ({ index, id, deleteForm }) => {
     <div className="form-wrapper">
       <div className="form-header">
         <h3>Education information {index + 1}</h3>
-        <div className="icon-wrapper" onClick={() => deleteForm(id)}>
-          <Icon size={1} path={mdiDelete} title="Delete form" />
-        </div>
+        {deleteForm && (
+          <div className="icon-wrapper" onClick={() => deleteForm(idForm)}>
+            <Icon size={1} path={mdiDelete} title="Delete form" />
+          </div>
+        )}
       </div>
 
       <div className="input-block">

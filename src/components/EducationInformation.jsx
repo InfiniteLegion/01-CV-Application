@@ -1,21 +1,40 @@
-import { useState } from "react";
 import "../styles/forms.css";
 import FormEducationalInformation from "./FormEducationalInformation.jsx";
 
-const EducationInformation = ({ changePage }) => {
-  const [forms, setForms] = useState([{ id: crypto.randomUUID() }]);
+const EducationInformation = ({ changePage, educationData, setEducationData }) => {
 
   const handleAddForm = () => {
-    setForms((prev) => [...prev, { id: crypto.randomUUID() }]);
+    setEducationData((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        data: {
+          place: "",
+          degree: "",
+          dateStart: "",
+          dateEnd: "",
+        },
+      },
+    ]);
   };
 
   const handleRemoveForm = (id) => {
-    setForms((prev) => prev.filter((form) => form.id !== id));
+    setEducationData((prev) => prev.filter((form) => form.id !== id));
   };
 
   const handleChangePage = (index) => {
     changePage(index);
   };
+
+  const handleUpdateData = (id, newData) => {
+    setEducationData((prev) =>
+      prev.map((form) => (form.id === id ? { ...form, data: newData } : form)),
+    );
+  }
+  
+  const handleSaveData = () => {
+    setEducationData(educationData);
+  }
 
   return (
     <section className="educational-informantion">
@@ -26,12 +45,14 @@ const EducationInformation = ({ changePage }) => {
       </p>
 
       <div className="forms-block">
-        {forms.map((form, index) => (
+        {educationData.map((form, index) => (
           <div key={form.id}>
             <FormEducationalInformation
               index={index}
-              id={form.id}
-              deleteForm={handleRemoveForm}
+              idForm={form.id}
+              data={form.data}
+              updateData={handleUpdateData}
+              {...(educationData.length > 1 ? {deleteForm: handleRemoveForm} : {})}
             />
           </div>
         ))}
@@ -43,7 +64,7 @@ const EducationInformation = ({ changePage }) => {
           <button className="form-btn" onClick={handleAddForm}>
             Add education
           </button>
-          <button className="form-btn">Save</button>
+          <button className="form-btn" onClick={handleSaveData}>Save</button>
           <button className="form-btn" onClick={() => handleChangePage(2)}>
             Next &rarr;
           </button>

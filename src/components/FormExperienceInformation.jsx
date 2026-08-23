@@ -1,25 +1,16 @@
 import IconModule from "@mdi/react";
 import "../styles/forms.css";
 import { mdiAccountTie, mdiBriefcase, mdiDelete, mdiMapMarker } from "@mdi/js";
-import { useState } from "react";
 
-const FormExperienceInformation = ({ index, id, deleteForm }) => {
+const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData }) => {
   const Icon = IconModule.default;
-  const [data, setData] = useState({
-    company: "",
-    position: "",
-    location: "",
-    dateStart: "",
-    dateEnd: "",
-    responsibilities: "",
-  });
 
   const handleChange = (field) => (e) => {
-    setData((prev) => ({ ...prev, [field]: e.target.value }));
+    updateData(idForm, { ...data, [field]: e.target.value });
   };
 
   const handleClearForm = () => {
-    setData({
+    updateData(idForm, {
       company: "",
       position: "",
       location: "",
@@ -33,9 +24,11 @@ const FormExperienceInformation = ({ index, id, deleteForm }) => {
     <div className="form-wrapper">
       <div className="form-header">
         <h3>Experience information {index + 1}</h3>
-        <div className="icon-wrapper" onClick={() => deleteForm(id)}>
-          <Icon size={1} path={mdiDelete} title="Delete form" />
-        </div>
+        {deleteForm && (
+          <div className="icon-wrapper" onClick={() => deleteForm(idForm)}>
+            <Icon size={1} path={mdiDelete} title="Delete form" />
+          </div>
+        )}
       </div>
 
       <div className="input-block">
