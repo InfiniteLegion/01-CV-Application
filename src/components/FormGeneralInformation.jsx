@@ -2,21 +2,22 @@ import '../styles/forms.css';
 import IconModule from '@mdi/react';
 import { mdiAccount, mdiEmailOutline, mdiPhone } from '@mdi/js';
 
-const FormGeneralInformation = ({ generalData, setGeneralData }) => {
+const FormGeneralInformation = ({ generalData, setGeneralData, errors, validateFields }) => {
     const Icon = IconModule.default;
-    // const [data, setData] = useState(generalData);
-
+    
     const handleClear = () => {
-        setGeneralData({
-            lastName: '',
-            firstName: '',
-            email: '',
-            phone: ''
-        });
+      setGeneralData({
+        lastName: "",
+        firstName: "",
+        email: "",
+        phone: "",
+      });
     }
 
     const handleChange = (field) => (e) => {
-        setGeneralData(prev => ({...prev, [field]: e.target.value}));
+      const value = e.target.value;
+      setGeneralData(prev => ({...prev, [field]: value}));
+      validateFields(field, value);
     }
 
     return (
@@ -35,7 +36,9 @@ const FormGeneralInformation = ({ generalData, setGeneralData }) => {
               onChange={handleChange("lastName")}
             />
           </div>
-          <p className="input-error hidden"></p>
+          <p className={`input-error ${errors.lastName ? "" : "hidden"}`}>
+            {errors.lastName}
+          </p>
         </div>
 
         <div className="input-block">
@@ -52,7 +55,9 @@ const FormGeneralInformation = ({ generalData, setGeneralData }) => {
               onChange={handleChange("firstName")}
             />
           </div>
-          <p className="input-error hidden"></p>
+          <p className={`input-error ${errors.firstName ? "" : "hidden"}`}>
+            ${errors.firstName}
+          </p>
         </div>
 
         <div className="input-block">
@@ -69,7 +74,9 @@ const FormGeneralInformation = ({ generalData, setGeneralData }) => {
               onChange={handleChange("email")}
             />
           </div>
-          <p className="input-error hidden"></p>
+          <p className={`input-error ${errors.email ? "" : "hidden"}`}>
+            {errors.email}
+          </p>
         </div>
 
         <div className="input-block">
@@ -86,7 +93,9 @@ const FormGeneralInformation = ({ generalData, setGeneralData }) => {
               onChange={handleChange("phone")}
             />
           </div>
-          <p className="input-error hidden"></p>
+          <p className={`input-error ${errors.phone ? "" : "hidden"}`}>
+            {errors.phone}
+          </p>
         </div>
 
         <button className="form-btn" onClick={handleClear}>
