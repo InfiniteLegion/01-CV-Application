@@ -2,11 +2,13 @@ import { mdiDelete, mdiSchool, mdiTownHall } from "@mdi/js";
 import "../styles/forms.css";
 import IconModule from "@mdi/react";
 
-const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateData }) => {
+const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateData, errors, validateField }) => {
   const Icon = IconModule.default;
   
   const handleChange = (field) => (e) => {
-    updateData(idForm, {...data, [field]: e.target.value});
+    const value = e.target.value;
+    updateData(idForm, {...data, [field]: value});
+    validateField(idForm, field, value);
   };
 
   const handleClear = () => {
@@ -43,7 +45,9 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
             onChange={handleChange("place")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.place ? "" : "hidden"}`}>
+          {errors.place}
+        </p>
       </div>
 
       <div className="input-block">
@@ -60,7 +64,9 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
             onChange={handleChange("degree")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.degree ? "" : "hidden"}`}>
+          {errors.degree}
+        </p>
       </div>
 
       <div className="input-block">
@@ -75,7 +81,9 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
             onChange={handleChange("dateStart")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.dateStart ? "" : "hidden"}`}>
+          {errors.dateStart}
+        </p>
       </div>
 
       <div className="input-block">
@@ -90,7 +98,9 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
             onChange={handleChange("dateEnd")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.dateEnd ? "" : "hidden"}`}>
+          {errors.dateEnd}
+        </p>
       </div>
 
       <button className="form-btn" onClick={handleClear}>
