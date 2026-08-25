@@ -2,11 +2,21 @@ import IconModule from "@mdi/react";
 import "../styles/forms.css";
 import { mdiAccountTie, mdiBriefcase, mdiDelete, mdiMapMarker } from "@mdi/js";
 
-const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData }) => {
+const FormExperienceInformation = ({
+  index,
+  idForm,
+  deleteForm,
+  data,
+  updateData,
+  errors,
+  validateField,
+}) => {
   const Icon = IconModule.default;
 
   const handleChange = (field) => (e) => {
-    updateData(idForm, { ...data, [field]: e.target.value });
+    const value = e.target.value;
+    updateData(idForm, { ...data, [field]: value });
+    validateField(idForm, field, value);
   };
 
   const handleClearForm = () => {
@@ -45,7 +55,9 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("company")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.company ? "" : "hidden"}`}>
+          {errors.company}
+        </p>
       </div>
 
       <div className="input-block">
@@ -62,7 +74,9 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("position")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.position ? "" : "hidden"}`}>
+          {errors.position}
+        </p>
       </div>
 
       <div className="input-block">
@@ -79,7 +93,9 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("location")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.location ? "" : "hidden"}`}>
+          {errors.location}
+        </p>
       </div>
 
       <div className="input-block">
@@ -94,7 +110,9 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("dateStart")}
           />
         </div>
-        <p className="input-error hidden"></p>
+        <p className={`input-error ${errors.dateStart ? "" : "hidden"}`}>
+          {errors.dateStart}
+        </p>
       </div>
 
       <div className="input-block">
@@ -108,10 +126,12 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("dateEnd")}
           />
         </div>
-        <p
-          className="input-error hidden"
-          id={`error-date-end-${index + 1}`}
-        ></p>
+        <p className="information-description" style={{ fontSize: "12px", padding: 0, textAlign: "left" }}>
+          Leave blank, if this is your current position
+        </p>
+        <p className={`input-error ${errors.dateEnd ? "" : "hidden"}`}>
+          {errors.dateEnd}
+        </p>
       </div>
 
       <div className="input-block">
@@ -126,10 +146,9 @@ const FormExperienceInformation = ({ index, idForm, deleteForm, data, updateData
             onChange={handleChange("responsibilities")}
           />
         </div>
-        <p
-          className="input-error hidden"
-          id={`error-responsibilities-${index + 1}`}
-        ></p>
+        <p className={`input-error ${errors.responsibilities ? "" : "hidden"}`}>
+          {errors.responsibilities}
+        </p>
       </div>
 
       <button className="form-btn" onClick={handleClearForm}>

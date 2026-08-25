@@ -75,7 +75,7 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
         </p>
         <div className="input-wrapper">
           <input
-            type="date"
+            type="month"
             className="form-input"
             value={data.dateStart}
             onChange={handleChange("dateStart")}
@@ -92,7 +92,7 @@ const FormEducationalInformation = ({ index, idForm, deleteForm, data, updateDat
         </p>
         <div className="input-wrapper">
           <input
-            type="date"
+            type="month"
             className="form-input"
             value={data.dateEnd}
             onChange={handleChange("dateEnd")}
