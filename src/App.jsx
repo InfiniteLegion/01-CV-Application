@@ -1,8 +1,40 @@
 import "./App.css";
 import CvApplication from "./components/CvApplication.jsx";
 import CvPreview from "./components/CvPreview.jsx";
+import { useState } from "react";
 
 function App() {
+  const [generalData, setGeneralData] = useState({
+    lastName: "",
+    firstName: "",
+    email: "",
+    phone: "",
+  });
+  const [educationData, setEducationData] = useState([
+    {
+      id: crypto.randomUUID(),
+      data: {
+        place: "",
+        degree: "",
+        dateStart: "",
+        dateEnd: "",
+      },
+    },
+  ]);
+  const [experienceData, setExperienceData] = useState([
+    {
+      id: crypto.randomUUID(),
+      data: {
+        company: "",
+        position: "",
+        location: "",
+        dateStart: "",
+        dateEnd: "",
+        responsibilities: "",
+      },
+    },
+  ]);
+
   return (
     <div className="app">
       <div className="app-header">
@@ -10,8 +42,19 @@ function App() {
       </div>
 
       <div className="cv-wrapper">
-        <CvApplication />
-        <CvPreview />
+        <CvApplication
+          generalData={generalData}
+          setGeneralData={setGeneralData}
+          educationData={educationData}
+          setEducationData={setEducationData}
+          experienceData={experienceData}
+          setExperienceData={setExperienceData}
+        />
+        <CvPreview
+          generalData={generalData}
+          educationData={educationData}
+          experienceData={experienceData}
+        />
       </div>
     </div>
   );

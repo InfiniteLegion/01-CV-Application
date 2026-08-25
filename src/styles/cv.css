@@ -55,3 +55,85 @@
     border-left: var(--border);
     padding-bottom: 20px;
 }
+
+.h2-preview-header {
+    text-align: center;
+    padding: 15px;
+}
+
+.preview-main-wrapper {
+    aspect-ratio: 210 / 297;
+    min-height: 800px;
+    box-shadow: var(--shadow-4);
+    margin: 0 180px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 75px 20px;
+    color: #555651;
+    overflow-y: auto;
+}
+
+.preview-general-info {
+    padding: 0 50px;
+}
+
+.preview-fullname {
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: 800;
+}
+
+.preview-hr {
+    background-color: #33688A;
+    height: 5px;
+    border: none;
+    margin: 10px 35%;
+}
+
+.preview-general-wrapper {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.preview-general-wrapper p {
+    font-size: 1.5em;
+    font-family: 'Merriweather';
+}
+
+.preview-education-info,
+.preview-experience-info {
+    padding: 25px 50px;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: 650;
+}
+
+.preview-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.preview-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-info-block {
+    display: flex;
+    gap: 5px;
+}
+
+.preview-info-wrapper p {
+    font-size: 1.25em;
+    font-family: 'Merriweather';
+}
