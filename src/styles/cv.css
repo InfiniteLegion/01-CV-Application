@@ -21,6 +21,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 15px 10px 0 10px;
+    background-color: var(--bgc-sidebar);
 }
 
 .cv-nav-btn {
@@ -33,13 +34,15 @@
 }
 
 .cv-nav-btn:hover {
-    background-color: lightseagreen;
+    background-color: var(--bgc-sidebar-btn-active);
+    color: var(--color-sidebar-btn-active);
 }
 
 .active-btn {
     border: var(--border);
-    border-color: darkcyan;
-    background-color: lightseagreen;
+    border: 1px solid var(--border-color-sidebar-btn-active);
+    background-color: var(--bgc-sidebar-btn-active);
+    color: var(--color-sidebar-btn-active);
 }
 
 /* forms area */
@@ -85,7 +88,7 @@
 }
 
 .preview-hr {
-    background-color: #33688A;
+    background-color: var(--color-cv-preview-hr);
     height: 5px;
     border: none;
     margin: 10px 35%;
@@ -108,7 +111,8 @@
     padding: 25px 50px;
 }
 
-.section-title {
+.preview-section-title {
+    color: var(--text-color-cv-preview-title);
     font-size: 2em;
     font-weight: 650;
 }

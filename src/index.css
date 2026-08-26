@@ -4,12 +4,35 @@
 
 :root {
   --border: 1px solid #28372f1a;
-  --bgc-cv-app: #F5F4F0;
+
+  --bgc-header-main: #FEF1EE;
+
+  --bgc-sidebar: #F8EEDE;
+  --bgc-sidebar-btn-active: #C56F5B;
+  --color-sidebar-btn-active: #FBEFE2;
+  --border-color-sidebar-btn-active: #C1887C;
+
+  --bgc-cv-app: #FDE4D7;
+  --bgc-form-input: #F6F4F1;
+  --border-color-form-input-focus: #C76D5B;
+  --bgc-cv-app-btn: #FEE8DC;
+  --text-color-cv-app-btn: #AF594A;
+  --border-color-cv-app-btn: #C76D5B;
+  --bgc-cv-app-btn-hover: #C76D5B;
+  --text-color-cv-app-btn-hover: #F7F2EC;
+  --bgc-cv-app-btn-block: #F6F4F1;
+
+  --bgc-cv-preview: #F7D3C6;
+  --color-cv-preview-hr: #BC7364;
+  --text-color-cv-preview-title: #AF6B55;
+
+  /*
   --bgc-cv-preview: #E7E8E3;
   --border-color-input-focus: blue;
   --bgc-form-btn-save: lightblue;
   --bgc-form-btn-save-hover: steelblue;
   --border-color-form-btn-save-hover: darkblue;
+  */
   --color-secondary-text: gray;
   --shadow-4: 0 0 10px 5px rgba(0, 0, 0, 0.5);
 }

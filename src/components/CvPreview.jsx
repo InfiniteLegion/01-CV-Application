@@ -49,7 +49,7 @@ const CvPreview = ({ generalData, educationData, experienceData }) => {
 
         {educationData[0].data.place && (
           <div className="preview-education-info">
-            <p className="section-title">EDUCATION</p>
+            <p className="preview-section-title">EDUCATION</p>
 
             <div className="preview-info-box">
               {educationData.map(({ id, data }, index) => (
@@ -78,7 +78,7 @@ const CvPreview = ({ generalData, educationData, experienceData }) => {
 
         {experienceData[0].data.company && (
           <div className="preview-experience-info">
-            <p className="section-title">EXPERIENCE</p>
+            <p className="preview-section-title">EXPERIENCE</p>
 
             <div className="preview-info-box">
               {experienceData.map(({ id, data }, index) => (
