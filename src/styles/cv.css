@@ -9,13 +9,13 @@
     background-color: var(--bgc-cv-app);
     display: grid;
     grid-template-columns: 1fr 5fr;
-    padding-bottom: 20px;
     overflow-y: auto;
 }
 
 /* sidebar area */
 
-.cv-app-sidebar {
+.cv-app-navbar {
+    height: 100%;
     border-right: var(--border);
     display: flex;
     flex-direction: column;
@@ -140,4 +140,67 @@
 .preview-info-wrapper p {
     font-size: 1.25em;
     font-family: 'Merriweather';
+}
+
+@media screen and (max-width: 500px) {
+    /*.cv-wrapper-1 .cv-app {
+        height: 100%;
+    }*/
+    
+    .cv-app,
+    .cv-preview {
+        height: auto;
+    }
+
+    .cv-app {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cv-app-navbar {
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px 0;
+    }
+
+    .cv-nav-btn {
+        padding: 5px;
+    }
+
+    .preview-main-wrapper {
+        min-height: 200px;
+        margin: 0 50px;
+        padding: 40px 20px;
+    }
+
+    .preview-fullname {
+        font-size: 2.5em;
+    }
+
+    .preview-general-wrapper p {
+        font-size: 1em;
+    }
+
+    .preview-section-title {
+        font-size: 1.5em;
+    }
+
+    .preview-info-wrapper p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .cv-app {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cv-wrapper-2 .cv-app .cv-app-navbar {
+        height: auto;
+        flex-direction: row;
+        justify-content: center;
+        padding: 5px 0;
+    }
 }

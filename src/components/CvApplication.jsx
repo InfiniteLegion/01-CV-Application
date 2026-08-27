@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/cv.css";
 import CvApplicationForms from "./CvApplicationForms.jsx";
-import CvApplicationSideBar from "./CvApplicationSideBar.jsx";
+import CvApplicationNavBar from "./CvApplicationNavBar.jsx";
 
 const CvApplication = ({
   generalData,
@@ -15,7 +15,7 @@ const CvApplication = ({
 
   return (
     <section className="cv-app">
-      <CvApplicationSideBar index={activeIndex} onSend={setActiveIndex} />
+      <CvApplicationNavBar index={activeIndex} onSend={setActiveIndex} />
       <CvApplicationForms
         activeIndex={activeIndex}
         changePage={setActiveIndex}

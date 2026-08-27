@@ -2,7 +2,7 @@ import { mdiBriefcase, mdiCalendarMonth, mdiEmail, mdiFormatListBulleted, mdiMap
 import "../styles/cv.css";
 import IconModule from "@mdi/react";
 
-const CvPreview = ({ generalData, educationData, experienceData }) => {
+const CvPreview = ({ generalData, educationData, experienceData, showPreview }) => {
   const Icon = IconModule.default;
 
   const formatDate = (dateString) => {
@@ -22,7 +22,7 @@ const CvPreview = ({ generalData, educationData, experienceData }) => {
   }
 
   return (
-    <section className="cv-preview">
+    (showPreview && <section className="cv-preview">
       <h2 className="h2-preview-header">Preview</h2>
 
       <div className="preview-main-wrapper">
@@ -127,7 +127,7 @@ const CvPreview = ({ generalData, educationData, experienceData }) => {
           </div>
         )}
       </div>
-    </section>
+    </section>)
   );
 };
 

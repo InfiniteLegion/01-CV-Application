@@ -1,6 +1,6 @@
 import "../styles/cv.css";
 
-const CvApplicationSideBar = ({ index, onSend }) => {
+const CvApplicationNavBar = ({ index, onSend }) => {
   const handleChangeForm = (target) => {
     if (target.id === "btn-general") {
       onSend(0);
@@ -12,7 +12,7 @@ const CvApplicationSideBar = ({ index, onSend }) => {
   };
 
   return (
-    <section className="cv-app-sidebar">
+    <section className="cv-app-navbar">
       <button
         id="btn-general"
         className={`cv-nav-btn ${index === 0 ? "active-btn" : ""}`}
@@ -38,4 +38,4 @@ const CvApplicationSideBar = ({ index, onSend }) => {
   );
 };
 
-export default CvApplicationSideBar;
+export default CvApplicationNavBar;
